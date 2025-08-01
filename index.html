@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I Forgot Why I’m Here</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+    body {
+      font-family: 'Indie Flower', cursive;
+      background: linear-gradient(135deg, #fef6e4, #fde2e2);
+      text-align: center;
+      padding: 50px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      color: #ff6b6b;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #6c5ce7;
+    }
+
+    textarea {
+      width: 80%;
+      height: 120px;
+      font-size: 18px;
+      padding: 15px;
+      border: 2px dashed #ffafcc;
+      background-color: #fff0f6;
+      resize: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 25px;
+      margin-top: 15px;
+      background-color: #ffc6ff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #bdb2ff;
+    }
+
+    #message {
+      font-size: 20px;
+      margin-top: 25px;
+      color: #ff595e;
+      min-height: 30px;
+      transition: opacity 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .fade-out {
+      animation: fadeOut 1s forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>I Forgot Why I'm Here 🧠</h1>
+  <p>Write a thought. It’ll self-destruct in 5 seconds.</p>
+
+  <textarea id="note" placeholder="Type something deep... or not."></textarea><br>
+  <button onclick="forgetNote()">Save (Just Kidding)</button>
+
+  <div id="message"></div>
+
+  <script>
+    function forgetNote() {
+      const note = document.getElementById('note');
+      const messageBox = document.getElementById('message');
+
+      messageBox.style.opacity = 1;
+      messageBox.innerHTML = "Pretending to save your brilliance...";
+
+      setTimeout(() => {
+        note.value = '';
+        const quotes = [
+          "🧠 Too late. Memory's toast.",
+          "🐠 That thought swam away.",
+          "👻 Boo! Your idea vanished.",
+          "🪞Did you really think it’d stay?",
+          "📴 Brain.exe has stopped working.",
+          "🫧 Pop! Just like a soap bubble.",
+          "🕳 Vanished into the void."
+        ];
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        messageBox.innerHTML = randomQuote;
+        messageBox.classList.add('fade-out');
+      }, 5000);
+    }
+  </script>
+
+</body>
+</html>
